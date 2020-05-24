@@ -5,7 +5,7 @@
 
 ### 小程序二维码
 
-![](https://images.gitee.com/uploads/images/2019/0115/131233_f7c9226e_1400710.jpeg)
+![](https://mamba-blog-images.oss-cn-shanghai.aliyuncs.com/2020-05-24/991b57ce65c40f6d87808d11f5e45603.jpeg)
 
 ### 项目展示图
 
