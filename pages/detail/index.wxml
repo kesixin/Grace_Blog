@@ -1,0 +1,144 @@
+<!--pages/detail/index.wxml-->
+<view id="body">
+  <!--全局提醒-->
+  <i-message id="message" />
+  <!--加载中-->
+  <i-spin fix wx:if="{{loading}}"></i-spin>
+  <view style='background:#eee'>
+    <view style='background:#fff'>
+      <view class='feed-item'>
+        <view class='title'>{{detail.title}}</view>
+        <view class='listPic'>
+          <image mode='widthFix' src="{{detail.listPic}}"></image>
+        </view>
+        <view class='tag-body'>
+          <view class="postDate">
+            <i-icon type="addressbook" color='#738a94' size='16' />
+            <text class='author'>{{detail.author}}</text>
+          </view>
+          <view class="postDate">
+            <i-icon type="browse" color='#738a94' size='18' />
+            <text class='author'>{{detail.read_counts}}</text>
+          </view>
+          <view class="postDate">
+            <i-icon type="time" color='#738a94' size='16' />
+            <text class='author'>{{detail.createdAt}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="wxParse-blockquote">
+        <view class="wxParse-p">
+          <view class="WxEmojiView wxParse-inline">{{detail.excerpt}}</view>
+        </view>
+      </view>
+      <!--内容-->
+      <view class='content'>
+        <view>
+          <htmltowxml text="{{detail.mdcontent}}" type="markdown" highlightStyle="darcula" linenums="{{true}}" showLoading="{{false}}" bindWxmlTagATap="wxmlTagATap"></htmltowxml>
+        </view>
+      </view>
+    </view>
+    <!--评论区-->
+    <view>
+      <view wx:if="{{comment_count == 0}}" class="resp-head">暂无评论</view>
+      <view wx:else style='padding-bottom:60px;'>
+        <view class="resp-head1">全部评论（{{ comment_count }}）</view>
+        <view class="comment" wx:for="{{comments}}" wx:key="comment">
+          <view class="comment-info">
+            <view class="comment-author">
+              <view>
+                <image class="comment-author-icon" src="{{item.replyer.userPic}}"></image>
+              </view>
+              <view class="comment-author-info">
+                <view>{{ item.replyer.nickName }}</view>
+                <view style="margin-top: 5px;">{{ item.createdAt }}</view>
+              </view>
+            </view>
+            <view class="comment-author-position">
+              <view bindtap="replyComment" data-id="{{item.replyer.objectId}}" data-nickname="{{item.replyer.nickName}}" data-formid="{{item.formID}}" data-openid="{{item.replyer.authData.weapp.openid}}">
+                <image src="/images/comment.png" style="width: 20px;height: 20px;margin-bottom: 7px;"></image>
+              </view>
+              <view>{{ index + 1 }}楼</view>
+            </view>
+          </view>
+          <view>
+            <view class="h2w h2w-light">
+              <view class="h2w__main">
+                <view class="zan-c-red" wx:if="{{item.user.nickName}}">@{{ item.user.nickName }}</view>
+                <view class="h2w__p" data-alpha="undefined" data-data="undefined" data-ename="undefined" data-href="undefined" data-id="undefined" data-name="undefined" data-src="undefined" data-url="undefined" id="">
+                  {{ item.content }}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--底部框-->
+    <view class='comment-fixed'>
+      <form bindsubmit="formSubmit" report-submit='true'>
+        <view class="comment-respond">
+          <view class="comment-box">
+            <view wx:if="{{userInfo.nickName}}" style='display:flex;width:100%;'>
+              <input bindblur="onReplyBlur" bindconfirm="formSubmit" bindfocus="onRepleyFocus" class="comment-input" confirmType="send" cursorSpacing="10" focus="{{focus}}" maxlength="100" name="inputComment" placeholder="说点什么吧..." type="text" value="{{commentContent}}"></input>
+              <button class="comment-button touch-active" form-type="submit">发送</button>
+            </view>
+            <view wx:else class="need-login" bindtap='goMy'>点击此处授权，即可评论文章😆</view>
+            <view catchtap="showHideMenu" class="zan-icon zan-icon-add-o zan-font-20 icon-add">
+              <image src='../../images/open.png' class='open'></image>
+            </view>
+          </view>
+          <view class="menu-box {{isShow?'emoji-move-in':'emoji-move-out'}} {{isLoad?'no-emoji-move':''}}">
+            <view class="iconList">
+              <view class="iconLine">
+                <view class="icon-type">
+                  <view>
+                    <image class="img-menu" src="../../images/share.png"></image>
+                  </view>
+                  <view>
+                    <text>转发</text>
+                  </view>
+                  <button class="share-button share-button touch-active" openType="share"></button>
+                </view>
+                <view catchtap="createPic" class="icon-type">
+                  <view>
+                    <image class="img-menu" src="../../images/poster.png"></image>
+                  </view>
+                  <view>
+                    <text>海报</text>
+                  </view>
+                </view>
+                <view catchtap="collection" data-action="{{isCollect?'noCollect':'collect'}}" class="icon-type">
+                  <view>
+                    <image class="img-menu" src="../../images/{{isCollect?'collected.png':'collect.png'}}"></image>
+                  </view>
+                  <view>
+                    <text wx:if="{{isCollect}}">已收藏</text>
+                    <text wx:else>收藏</text>
+                  </view>
+                </view>
+                <view catchtap="like" data-action="{{isLiked?'noLike':'like'}}" class="icon-type">
+                  <view>
+                    <image class="img-menu" src="../../images/{{isLiked?'liked.png':'like.png'}}"></image>
+                  </view>
+                  <view>
+                    <text wx:if="{{isLiked}}">已点赞</text>
+                    <text wx:else>点赞</text>
+                  </view>
+                </view>
+                <view catchtap="reward" class="icon-type">
+                  <view>
+                    <image class="img-menu" src="../../images/reward.png"></image>
+                  </view>
+                  <view>
+                    <text>赞赏</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

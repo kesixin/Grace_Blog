@@ -1,0 +1,63 @@
+<!--pages/about/index.wxml-->
+<view>
+  <view class="caption-wrap">
+    <i-collapse name="{{name}}" accordion>
+      <i-collapse-item title="关于我" i-class="title" name="name1">
+        <view slot="content">
+          <view class="about">
+            <view class='list'>NBA巨星</view>
+            <view class='ul'>• 最崇拜NBA巨星科比 • 布莱恩特</view>
+            <view class='list'>理想的工作环境</view>
+            <view class='ul'>• 高配的电脑</view>
+            <view class='ul'>• 超快的网速</view>
+            <view class='ul'>• 宽松的环境</view>
+            <view class='ul'>• 很少的会议</view>
+            <view class='list'>关于自己</view>
+            <view class='ul'>• 做努力的自己</view>
+            <view class='list'>技术标签</view>
+            <view class='ul'>• PHP</view>
+            <view class='ul'>• MySQL</view>
+            <view class='ul'>• 前端</view>
+            <view class='ul'>• 微信小程序</view>
+          </view>
+        </view>
+      </i-collapse-item>
+      <i-collapse-item title="联系我" i-class="title" name="name2">
+        <view slot="content">
+          <view class="about">
+            <view class='ul'>
+              QQ：
+              <view bindtap="copyDataTap" class="zan-text-underline zan-c-blue" data-index="{{QQ}}">{{QQ}}</view>
+            </view>
+            <view class='ul'>
+              邮箱：
+              <view bindtap="copyDataTap" class="zan-text-underline zan-c-blue" data-index="{{email}}">{{email}}</view>
+            </view>
+            <view class='ul'>
+              主页：
+              <view bindtap="copyDataTap" class="zan-text-underline zan-c-blue" data-index="{{web}}">{{web}}</view>
+            </view>
+            <view class='ul'>
+              GitHub：
+              <view bindtap="copyDataTap" class="zan-text-underline zan-c-blue" data-index="{{github}}">{{github}}</view>
+            </view>
+          </view>
+        </view>
+      </i-collapse-item>
+      <i-collapse-item title="MambaBlog" i-class="title" name="name3">
+        <view slot="content">
+          <view class="about">
+            <view class='ul'>
+              <view style='justify-content:center;display:flex;width:100%;'>
+                <image catchtap='open' style ="width:200px;height:200px;" src="https://upload-images.jianshu.io/upload_images/6673460-944c2056d39a1da0.jpg"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </i-collapse-item>
+    </i-collapse>
+  </view>
+  <view class="adContainer">
+      <ad unit-id="adunit-5d73e5f4df2518c1" bindload="adLoad" binderror="adError" bindclose="adClose"></ad>
+    </view>
+</view>

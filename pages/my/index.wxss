@@ -1,0 +1,256 @@
+/* pages/my/index.wxss */
+
+page {
+  background: #eee;
+}
+
+.i-header {
+  height: 300rpx;
+  background-color: white;
+  text-align: center;
+}
+
+.g-bda-userinfo {
+  display: flex;
+}
+
+.g-bda-userinfo-30 {
+  width: 50%;
+  padding-top: 50rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.g-bda-userinfo-70 {
+  width: 50%;
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.userinfo-avatar {
+  width: 90px;
+  height: 90px;
+  margin: 10px;
+  margin-bottom: 1px;
+  border-radius: 50%;
+  border: 3px solid #aeeeee;
+}
+
+.userinfo-nickname {
+  color: #5f9ea0;
+  font-weight: bold;
+}
+
+.userinfo-sign {
+  font-size: small;
+  margin-top: 10px;
+}
+
+.contain {
+  background: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.zan-cell {
+  position: relative;
+  padding: 12px 15px;
+  display: flex;
+  line-height: 1.4;
+  font-size: 14px;
+}
+
+.zan-panel-lock {
+  border-top: 0px;
+  border-bottom: 0px;
+  width: 100%;
+}
+
+.zan-panel-bottom {
+  border-top: 0px;
+  border-bottom: 0px;
+}
+
+.zan-cell__bd {
+  flex: 1;
+}
+
+.item-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #f4f4f4;
+}
+
+.unlock_v {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.unlock-btn-cicle {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 10px solid #eaeaea;
+}
+
+/*修改默认button的颜色*/
+
+button[type="primary"] {
+  font-size: 15px;
+  background-color: #ff8247;
+}
+
+.circle-btn-sign {
+  color: white !important;
+  font-size: 15px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: #5fceca !important;
+  line-height: 65px;
+  margin-bottom: 10px;
+}
+
+/*签到成功图标*/
+
+.weui-icon_msg {
+  font-size: 65px !important;
+}
+
+.weui-icon-success {
+  color: #09bb07;
+}
+
+[class^="weui-icon-"], [class*=" weui-icon-"] {
+  display: inline-block;
+  vertical-align: middle;
+  font: normal normal normal 14px/1 "weui";
+  /* font-size: inherit; */
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+[class^="weui-icon_"]:before, [class*=" weui-icon_"]:before {
+  margin: 0;
+}
+
+.weui-icon-success:before {
+  content: "\EA06";
+}
+
+[class^="weui-icon-"]:before, [class*=" weui-icon-"]:before {
+  display: inline-block;
+}
+
+/*签到成功图标*/
+
+.signed-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.singed-text {
+  margin-top: 10px;
+  font-size: small;
+}
+
+.zan-cell__bd image {
+  float: left;
+}
+
+.open {
+  background: none !important;
+  color: #000 !important;
+}
+
+.circle-btn {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: #aeeeee;
+  line-height: 65px;
+}
+
+.open::after {
+  border: none;
+}
+
+.open-img {
+  width: 50px;
+  height: 50px;
+}
+
+.open-word {
+  font-size: small;
+  margin: 9px 0;
+}
+
+.zan-cell__bd image {
+  width: 18px;
+  height: 18px;
+}
+
+.zan-cell__bd span {
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+.zan-cell__bd view {
+  width: 110%;
+  height: 1px;
+  background: #ececec;
+  margin-top: 10px;
+}
+
+.zan-other {
+  font-size: 19px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.zan-other view {
+  width: 110%;
+  height: 1px;
+  background: #ececec;
+  margin-top: 10px;
+}
+
+.zan-other span {
+  font-size: 18px;
+}
+
+button::after {
+  border: none;
+}
+
+input {
+  outline: none;
+  border: none;
+  list-style: none;
+}
+
+.badge-wonderfully {
+  display: inline-block;
+  padding: 0.3em;
+  border-radius: 50%;
+  background-color: #e64340;
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+  vertical-align: middle;
+}
+.adContainer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+

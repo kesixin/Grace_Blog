@@ -1,0 +1,27 @@
+/* pages/about/index.wxss */
+view.title{
+  font-size:16px;
+}
+.about{
+  padding:10px;
+  line-height:2;
+}
+.list{
+  font-size:16px;
+}
+.ul{
+  padding-left:5px;
+  font-size:13px;
+  display: flex;
+}
+.zan-text-underline {
+    text-decoration: underline;
+}
+.zan-c-blue {
+    color: #38f!important;
+}
+.adContainer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

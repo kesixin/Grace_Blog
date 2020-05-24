@@ -1,0 +1,31 @@
+<!--pages/new/index.wxml-->
+<view>
+  <!--加载中-->
+  <i-spin fix wx:if="{{loading}}"></i-spin>
+
+  <view wx:if="{{nodata}}" style='margin-top:350rpx;width:100%;text-align:center;'>
+    <image src="/images/nodata.png" style='width:180rpx;height:180rpx;'></image>
+    <view style='color:#999999;font-size:34rpx'>暂无数据</view>
+  </view>
+  <view class='page-body' wx:else>
+    <view class="page__bd">
+      <block wx:for="{{news}}" wx:key="index">
+        <view bindtap="read" data-id="{{item.objectId}}" data-article="{{item.article.objectId}}">
+          <view class="zan-panel">
+            <view class="collect">
+              <image src="/images/xiaoxi.png" class="collect-img"></image>
+            </view>
+            <view class="zan-panel-media">
+              <view class="zan-c-gray-dark zan-font-12">
+                <view class="zan-panel-box">系统通知</view>
+                <view class="zan-panel-box">{{ item.createdAt }}</view>
+                <view class="zan-font-14" style="padding:10px 0">{{ item.content }}</view>
+                <view class="zan-c-gray zan-font-12">点击查看</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

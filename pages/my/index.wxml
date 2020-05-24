@@ -1,0 +1,104 @@
+<!--pages/my/index.wxml-->
+<view>
+  <!--加载中-->
+  <i-spin fix wx:if="{{loading}}"></i-spin>
+
+
+  <view class='i-header'>
+    <view class='g-bda-userinfo'>
+      <view class="g-bda-userinfo-30">
+        <image class="userinfo-avatar" src="{{userData.userPic}}"></image>
+      </view>
+      <view wx:if="{{userData.nickName}}" class="g-bda-userinfo-70">
+        <view class="userinfo-nickname">{{ userData.nickName }}</view>
+        <view v-if="{{signNum}}" class="userinfo-sign">已签到{{signNum}}天</view>
+        <view v-else></view>
+      </view>
+      <view wx:else class="g-bda-userinfo-70">
+        <view class="userinfo-nickname">尚未解锁</view>
+        <view class="userinfo-sign">请点击下方的按钮解锁</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{userData.nickName}}" class="contain">
+    <i-cell-group>
+      <i-cell wx:if="{{noReadNewsCount>0}}" title="我的消息({{noReadNewsCount}}条未读消息)" is-link url="/pages/new/index">
+        <i-icon slot="icon" type="remind" size="18" color='#d81e06' />
+      </i-cell>
+      <i-cell wx:else title="我的消息" is-link url="/pages/new/index">
+        <i-icon slot="icon" type="remind" size="18" color='#d81e06' />
+      </i-cell>
+      <i-cell title="我的收藏" is-link url="/pages/collect/index">
+        <i-icon type="collection" slot="icon" size="18" color='#ff7f27' /></i-cell>
+    </i-cell-group>
+  </view>
+  <view wx:if="{{userData.nickName}}" class="contain">
+    <view class="zan-panel" style="border-top:0px;border-bottom:0px;width: 100%">
+      <view class="zan-cell zan-cell--access">
+        <view class="zan-cell__bd">
+          <image src="/images/lock.png"></image>
+          <span>签到</span>
+        </view>
+      </view>
+      <view class="item-wrapper">
+        <view wx:if="{{sign}}" class="unlock_v">
+          <view class='unlock-btn-cicle'>
+            <i class="weui-icon-success weui-icon_msg"></i>
+          </view>
+          <text class="open-word">今日签到时间：{{signTime.createdAt}}</text>
+        </view>
+        <view wx:else class="unlock_v">
+          <view class="unlock-btn-cicle">
+            <button class="circle-btn-sign" type="default" bindtap="sign">签到</button>
+          </view>
+          <view class="open-word">点击按钮签到</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="contain">
+    <view class="zan-panel zan-panel-lock">
+      <view class="zan-cell zan-cell--access">
+        <view class="zan-cell__bd">
+          <image src="/images/lock.png"></image>
+          <span>解锁</span>
+        </view>
+
+      </view>
+      <view class="item-wrapper">
+        <view class="unlock_v">
+          <view class="unlock-btn-cicle">
+            <button class="circle-btn" open-type="getUserInfo" type="primary" bindgetuserinfo="bindGetUserInfo">
+              解锁
+            </button>
+          </view>
+          <view class="open-word">点击解锁按钮解锁更多功能</view>
+        </view>
+      </view>
+    </view>
+    <view class="zan-panel zan-panel-bottom"></view>
+  </view>
+  <view class='contain'>
+    <view class="zan-panel" style="border-top:0px;border-bottom:0px;width: 100%">
+      <view>
+        <i-cell-group>
+          <i-cell title="赞赏支持" is-link bind:click="praise">
+            <i-icon type="praise" slot='icon' size="18" color='#ff7055' /></i-cell>
+          <button style="border: 0;margin: 0;padding: 0;font-size: 18px;color:#000000;line-height: 1;width: 100%;text-align: left;" open-type="share">
+            <i-cell title="分享好友" is-link>
+              <i-icon type="share" slot="icon" size="18" color='#2d8cf0' /></i-cell>
+          </button>
+          <button style="border: 0;margin: 0;padding: 0;font-size: 18px;color:#000000;line-height: 1;width: 100%;text-align: left;" open-type="contact">
+          <i-cell title="反馈意见" is-link>
+            <i-icon type="interactive" slot="icon" size="18" /></i-cell>
+          </button>
+          <i-cell title="联系作者" is-link url="/pages/about/index">
+            <i-icon type="mobilephone" slot="icon" size="18" color='#1296db' /></i-cell>
+        </i-cell-group>
+      </view>
+    </view>
+  </view>
+  <view class="adContainer">
+      <ad unit-id="adunit-5d73e5f4df2518c1" bindload="adLoad" binderror="adError" bindclose="adClose"></ad>
+    </view>
+</view>

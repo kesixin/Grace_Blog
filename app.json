@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/index",
+    "pages/my/index",
+    "pages/detail/index",
+    "pages/about/index",
+    "pages/share/index",
+    "pages/collect/index",
+    "pages/new/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Mamba博客",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "color": "#909090",
+    "list": [
+      {
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-selected.png",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "专题",
+        "iconPath": "images/category.png",
+        "selectedIconPath": "images/category-selected.png",
+        "pagePath": "pages/category/index"
+      },
+      {
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my-selected.png",
+        "pagePath": "pages/my/index"
+      }
+    ]
+  },
+  "plugins": {
+    "htmltowxml": {
+      "version": "1.4.0",
+      "provider": "wxa51b9c855ae38f3c"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx18a2ac992306a5a4",
+    "wx7df186fa6b0094c1"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,65 @@
+/* pages/new/index.wxss */
+page{
+        background-color:#f3f3f3;
+        height:100%;
+        font-size:14px;
+        line-height:1.6;
+    }
+.page-body {
+        width: 100%;
+        flex-grow: 1;
+        overflow-x: hidden;
+    }
+    .page__bd{
+        margin-top:10px;
+    }
+    .zan-panel{
+        padding:10px;
+        position:relative;
+        background:#fff;
+        margin-top:10px;
+        overflow:hidden;
+    }
+    .collect{
+        font-size:25px;
+        color:#41C4FF;
+        float:left;
+        margin-right:15px;
+        width:7%;
+        height:100px;
+    }
+    /*收藏-消息*/
+.collect {
+    font-size: 25px;
+    color: #41C4FF;
+    float: left;
+    margin-right: 15px;
+    width: 7%;
+    height: 100px;
+}
+
+.collect-img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.zan-font-12 {
+    font-size: 12px;
+}
+
+.zan-c-gray-dark {
+    color: #999 !important;
+}
+
+.zan-panel-box {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.zan-font-14 {
+    font-size: 14px;
+    padding: 10px 0;
+    color: #000000;
+}
+/*收藏-消息*/

@@ -1,0 +1,35 @@
+<!--pages/collect/index.wxml-->
+<view>
+  <!--加载中-->
+  <i-spin fix wx:if="{{loading}}"></i-spin>
+
+  <!--articles-->
+  <view wx:if="{{nodata}}" style='margin-top:350rpx;width:100%;text-align:center;'>
+    <image src="/images/nodata.png" style='width:180rpx;height:180rpx;'></image>
+    <view style='color:#999999;font-size:34rpx'>暂无数据</view>
+  </view>
+  <scroll-view wx:else bindscrolltolower="lower" class="scorll-margin" lowerThreshold="5" scrollIntoView="{{toView}}" scrollTop="{{scrollTop}}" scrollWithAnimation="true" scrollY="true">
+    <view class="zan-panel zan-panel--without-top-border" wx:for="{{articles}}" wx:for-index="idx">
+      <view class="zan-card" data-id="{{item.article.objectId}}" bindtap="detail">
+        <view class="zan-card__thumb">
+          <image binderror="errorloadImage" class="zan-card__img" data-index="{{idx}}" mode="scaleToFill" src="{{item.article.listPic}}"></image>
+        </view>
+        <view class="zan-card__detail">
+          <view class="zan-card__detail-row " style="height:60px">
+            <view class="zan-card zan-ellipsis--l2">
+              <text>{{item.article.title}}</text>
+            </view>
+          </view>
+          <view class="zan-card__detail-row zan-c-gray-darker">
+            <view class="zan-card1">
+              <view style='display:flex;'>
+                <view class="postDate"><i-icon type="addressbook" color='#738a94' size='16'/><text class='author'>{{item.article.author}}</text></view>
+                <view class="postDate"><i-icon type="time" color='#738a94' size='16' /><text class='author'>{{item.createdAt}}</text></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

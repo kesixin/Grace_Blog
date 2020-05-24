@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#242424",
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "painter": "../../dist/painter/painter"
+  }
+}

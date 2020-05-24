@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "htmltowxml": "plugin://htmltowxml/view",
+    "i-spin": "../../dist/spin/index",
+    "i-icon": "../../dist/icon/index",
+    "i-message": "../../dist/message/index"
+  }
+}

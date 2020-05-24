@@ -1,0 +1,7 @@
+{
+  "usingComponents":{
+    "i-spin": "../../dist/spin/index",
+    "i-icon": "../../dist/icon/index",
+    "i-load-more": "../../dist/load-more/index"
+  }
+}
